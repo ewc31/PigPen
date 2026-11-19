@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pigpen hook claude-code",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

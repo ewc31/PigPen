@@ -1,0 +1,27 @@
+{
+  "name": "@pigpen/cli",
+  "version": "0.1.0",
+  "description": "The pigpen command: init a pen, check prompts, approve handoffs.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "pigpen": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "source": "./src/cli.ts",
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@pigpen/core": "workspace:*"
+  }
+}
