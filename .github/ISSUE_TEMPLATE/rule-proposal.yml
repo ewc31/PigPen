@@ -1,0 +1,31 @@
+name: Preflight rule proposal
+description: Suggest a new rule, or a change to an existing one
+labels: [preflight-rule]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Rule name
+      placeholder: "No error message"
+    validations:
+      required: true
+  - type: textarea
+    id: fires
+    attributes:
+      label: Fires when
+      description: A deterministic condition. No model calls.
+    validations:
+      required: true
+  - type: input
+    id: question
+    attributes:
+      label: The question it asks
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: 3 prompts that should fire it, and 3 that shouldn't.
+    validations:
+      required: true

@@ -1,0 +1,8 @@
+{"ts":"2026-11-24T10:20:00-08:00","member":"b","tool":"cursor","task":"t-00","event":"preflight","score_before":35,"rules":["R1","R3"],"questions":0,"pigpen_tokens":0}
+{"ts":"2026-11-24T10:23:00-08:00","member":"b","tool":"cursor","task":"t-00","event":"rerun","similar_to":"2026-11-24T10:20:00-08:00","pigpen_tokens":0}
+{"ts":"2026-11-24T10:23:05-08:00","member":"b","tool":"cursor","task":"t-00","event":"preflight","score_before":45,"rules":["R1","R3","R8"],"questions":3,"pigpen_tokens":0}
+{"ts":"2026-11-24T10:24:40-08:00","member":"b","tool":"cursor","task":"t-00","event":"answered","answered":3,"skipped":0,"pigpen_tokens":0}
+{"ts":"2026-11-24T10:48:00-08:00","member":"b","tool":"cursor","task":"t-01","event":"handoff_decided","handoff":"h-001","decision":"approved","by":"b","pigpen_tokens":0}
+{"ts":"2026-11-24T11:02:00-08:00","member":"b","tool":"cursor","task":"t-01","event":"preflight","score_before":0,"rules":[],"questions":0,"pigpen_tokens":0}
+{"ts":"2026-11-24T11:15:00-08:00","member":"b","tool":"cursor","task":"t-01","event":"revert","commit":"3f2a9c1","pigpen_tokens":0}
+{"ts":"2026-11-24T11:30:00-08:00","member":"b","tool":"cursor","task":"t-01","event":"handoff_created","handoff":"h-002","pigpen_tokens":0}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+# PigPen keeps per-machine state here; never commit it.
+**/.pigpen/private/

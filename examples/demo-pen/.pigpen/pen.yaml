@@ -1,0 +1,12 @@
+version: "0.1"
+name: pigpen-demo
+members:
+  - id: a
+    human: Designer
+    tool: claude-code
+  - id: b
+    human: Engineer
+    tool: cursor
+gate: advise
+profile: standard
+question_threshold: 40

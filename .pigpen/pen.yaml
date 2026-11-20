@@ -1,0 +1,13 @@
+# The pen for building PigPen itself. Edit members to match who uses which tool.
+version: "0.1"
+name: pigpen
+members:
+  - id: a
+    human: Designer
+    tool: claude-code
+  - id: b
+    human: Engineer
+    tool: cursor
+gate: advise
+profile: standard
+question_threshold: 40

@@ -1,0 +1,16 @@
+---
+description: Human-owned areas of the PigPen repo — coach, don't write
+alwaysApply: true
+---
+
+Read AGENTS.md at the repo root and follow it. In particular, these paths are written by the
+two maintainers themselves, so they can show and explain their own work:
+
+- packages/core/src/preflight/rules/
+- packages/core/test/rules.test.ts
+- packages/cli/src/format.ts
+- apps/replay/src/ui/
+
+In those paths, do not write or rewrite implementation code or tests. Explain, answer questions,
+review what they wrote, and suggest test cases in plain language. If they explicitly ask you to
+write code there anyway, remind them once that the area is human-owned, then respect the answer.

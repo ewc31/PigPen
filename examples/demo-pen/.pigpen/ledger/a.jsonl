@@ -1,0 +1,7 @@
+{"ts":"2026-11-24T10:02:00-08:00","member":"a","tool":"claude-code","task":"t-01","event":"preflight","score_before":50,"rules":["R2","R4","R5"],"questions":3,"pigpen_tokens":0}
+{"ts":"2026-11-24T10:04:30-08:00","member":"a","tool":"claude-code","task":"t-01","event":"answered","answered":2,"skipped":1,"pigpen_tokens":0}
+{"ts":"2026-11-24T10:05:10-08:00","member":"a","tool":"claude-code","task":"t-01","event":"preflight","score_before":15,"rules":["R5"],"questions":0,"pigpen_tokens":0}
+{"ts":"2026-11-24T10:41:00-08:00","member":"a","tool":"claude-code","task":"t-01","event":"handoff_created","handoff":"h-001","pigpen_tokens":0}
+{"ts":"2026-11-24T11:34:00-08:00","member":"a","tool":"claude-code","task":"t-02","event":"handoff_decided","handoff":"h-002","decision":"approved","by":"a","pigpen_tokens":0}
+{"ts":"2026-11-24T11:36:00-08:00","member":"a","tool":"claude-code","task":"t-02","event":"preflight","score_before":20,"rules":["R2"],"questions":0,"pigpen_tokens":0}
+{"ts":"2026-11-24T12:10:00-08:00","member":"a","tool":"claude-code","task":"t-02","event":"review","criteria_met":["AC1","AC2"],"drift":[],"pigpen_tokens":0}

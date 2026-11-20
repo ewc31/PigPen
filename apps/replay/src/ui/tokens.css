@@ -1,0 +1,23 @@
+/*
+ * HUMAN-OWNED (designer): the replay's design tokens. Every colour, size and font in
+ * the UI should come from here so the brand can change in one place.
+ * These are neutral placeholders.
+ */
+:root {
+  --pp-font-body: system-ui, sans-serif;
+  --pp-font-mono: ui-monospace, monospace;
+  --pp-bg: #ffffff;
+  --pp-ink: #1a1a1a;
+  --pp-ink-quiet: #666666;
+  --pp-line: #dddddd;
+  --pp-accent: #333333;
+  --pp-space: 8px;
+  --pp-radius: 4px;
+}
+
+body {
+  margin: 0;
+  background: var(--pp-bg);
+  color: var(--pp-ink);
+  font-family: var(--pp-font-body);
+}
