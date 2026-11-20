@@ -79,7 +79,8 @@ Then connect your agent: [Claude Code](./integrations/claude-code/README.md) ·
 
 ## Who built what
 
-<!-- TODO: your names, links and one line each on what you owned -->
+Eileen Cahill - planning and pushing initial code
+Hakim Lahlou - planning and revising code
 
 |              | Owned                                                                                 |
 | ------------ | ------------------------------------------------------------------------------------- |
