@@ -82,7 +82,7 @@ Then connect your agent: [Claude Code](./integrations/claude-code/README.md) ·
 |              | Owned                                                                                 |
 | ------------ | ------------------------------------------------------------------------------------- |
 | **Designer (Eileen)** | Pen replay page, brand and design tokens, preflight question wording, terminal output |
-| **Engineer (Hakim** | Preflight rules engine and rules, MCP server, hooks, file format                      |
+| **Engineer (Hakim)** | Preflight rules engine and rules, MCP server, hooks, file format                      |
 
 **How this was built.** We used Claude Code and Cursor throughout, and PigPen on itself (see
 [`.pigpen/`](./.pigpen)). An agent scaffolded the plumbing: monorepo, CI, file format, MCP server and
