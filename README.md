@@ -79,13 +79,10 @@ Then connect your agent: [Claude Code](./integrations/claude-code/README.md) ·
 
 ## Who built what
 
-Eileen Cahill - planning and pushing initial code
-Hakim Lahlou - planning and revising code
-
 |              | Owned                                                                                 |
 | ------------ | ------------------------------------------------------------------------------------- |
-| **Designer** | Pen replay page, brand and design tokens, preflight question wording, terminal output |
-| **Engineer** | Preflight rules engine and rules, MCP server, hooks, file format                      |
+| **Designer (Eileen)** | Pen replay page, brand and design tokens, preflight question wording, terminal output |
+| **Engineer (Hakim** | Preflight rules engine and rules, MCP server, hooks, file format                      |
 
 **How this was built.** We used Claude Code and Cursor throughout, and PigPen on itself (see
 [`.pigpen/`](./.pigpen)). An agent scaffolded the plumbing: monorepo, CI, file format, MCP server and
