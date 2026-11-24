@@ -94,22 +94,53 @@ are recorded only when the tool exposes them; anything inferred is marked `"esti
 | `rerun`           | A prompt is near-identical to a recent one | `similar_to`                         |
 | `revert`          | A revert commit lands on an agent's change | `commit`                             |
 
-## Preflight rules
+## Preflight rules (v0.2)
 
 Deterministic, no model calls, so preflight costs zero tokens and every point has a reason. The
 **mud score** is the sum of the weights of the rules that fire, capped at 100; lower is cleaner.
 At or above `question_threshold`, PigPen shows up to 3 questions, highest weight first.
 
-| ID  | Rule                 | Fires when                                                                               | Weight | Question                                             |
-| --- | -------------------- | ---------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------- |
-| R1  | No clear goal        | No action verb in the first sentence, or the prompt is under 6 words                     | 20     | What should be different when this is done?          |
-| R2  | No "done"            | No should / must / so that / until / test, and the brief has no open acceptance criteria | 20     | How will we know it's done?                          |
-| R3  | Vague pointer        | "it", "this" or "that" in the first 10 words with no file, function or earlier mention   | 15     | Which file or function do you mean?                  |
-| R4  | No location          | No file path, symbol or URL, in a repo with more than 50 files                           | 15     | Where should the agent look first?                   |
-| R5  | Scope explosion      | "everything", "whole app", "rewrite", or 3+ separate asks                                | 15     | Can we split this? Which part first?                 |
-| R6  | Fights the brief     | Names something under Constraints or Out of scope                                        | 20     | The brief rules this out. Override it for this task? |
-| R7  | Risky with no limits | Delete / migrate / deploy / auth / payments with no stated limit                         | 10     | Anything it must not touch, or data to keep?         |
-| R8  | Likely rerun         | At least 80% similar to one of your last 5 prompts in 15 minutes                         | 10     | What went wrong last time?                           |
+Rule ids never change once assigned, so ledgers and tests stay valid. Weights are starting
+guesses: set them from labeled real prompts before the demo.
+
+### Demo set: build these now
+
+Nine rules that need only the prompt text, the brief and the repo's file count.
+
+| ID  | Rule                 | Fires when                                                                                                    | Weight | Question                                                              |
+| --- | -------------------- | ------------------------------------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------- |
+| R1  | No clear goal        | No action verb in the first sentence, or the prompt is under 6 words                                          | 20     | What should be different when this is done?                           |
+| R2  | No "done"            | No should / must / so that / until / test, and the brief has no open acceptance criteria                      | 20     | How will we know it's done?                                           |
+| R9  | Bug with no evidence | Says bug / broken / doesn't work / crash / fails, with no error text, no code block and no expected-vs-actual | 20     | What did you expect, and what happened instead? Paste the error text. |
+| R3  | Vague pointer        | "it", "this" or "that" in the first 10 words with no file, function or earlier mention                        | 15     | Which file or function do you mean?                                   |
+| R4  | No location          | No file path, symbol or URL, in a repo with more than 50 files                                                | 15     | Where should the agent look first?                                    |
+| R5  | Scope explosion      | "everything", "whole app", "rewrite", or 3+ separate asks                                                     | 15     | Can we split this? Which part first?                                  |
+| R10 | Vague quality words  | "better", "cleaner", "nicer", "modern", "polish", "clean up" with no criteria, example or reference           | 15     | Better how? Name one thing that should look or work differently.      |
+| R7  | Risky with no limits | Delete / migrate / deploy / auth / payments with no stated limit                                              | 10     | Anything it must not touch, or data to keep?                          |
+| R11 | Huge paste           | Over 200 lines or 20,000 characters, or a pasted log or stack trace over 50 lines                             | 10     | Which part of this matters? Trim it to the lines the agent needs.     |
+
+### Next: after checking what the hook receives
+
+These need data beyond the prompt text. Confirm Claude Code (and Cursor) actually pass it before
+building them, then add the field to `RuleContext`.
+
+| ID  | Rule                       | Fires when                                                         | Needs                                           | Question                                                 |
+| --- | -------------------------- | ------------------------------------------------------------------ | ----------------------------------------------- | -------------------------------------------------------- |
+| R12 | Big task outside plan mode | R5 fires and the agent is not in plan mode                         | The hook's `permission_mode` (Claude Code only) | This looks big. Plan it first?                           |
+| R13 | Long session               | The current session's transcript is over a size limit              | The hook's `transcript_path`                    | Start a fresh session with a handoff? It's cheaper.      |
+| R14 | Screenshot instead of text | An image is attached and the prompt mentions an error or a message | A way to see attachments                        | Can you paste the text instead? Images cost more tokens. |
+
+R13 is advice about the session rather than the prompt, so consider showing it as a tip that
+doesn't add to the mud score.
+
+### Later
+
+| ID  | Rule                            | Why later                                                                         |
+| --- | ------------------------------- | --------------------------------------------------------------------------------- |
+| R6  | Fights the brief                | Only useful while the brief is kept current; bring it back once you use one daily |
+| R8  | Likely rerun                    | Needs a prompt-similarity measure, the hardest piece of the original eight        |
+| R15 | Names a file that doesn't exist | Needs fuzzy matching against the repo's files ("Did you mean `fetchUser`?")       |
+| —   | Secret in the prompt            | A safety warning using the existing secret scanner, not part of the mud score     |
 
 After the person answers, PigPen builds the cleaned prompt from a fixed template
 (Goal / Done when / Look in / Limits) plus the original text. No model rewrites it.

@@ -25,7 +25,7 @@ pnpm pigpen preflight "fix it"     # the CLI, after pnpm build
 | Path                                 | What                                                | Who writes it   |
 | ------------------------------------ | --------------------------------------------------- | --------------- |
 | `packages/core/`                     | `.pigpen/` format, handoff safety, preflight engine | Agents may help |
-| `packages/core/src/preflight/rules/` | **The preflight rules R1–R8**                       | **Humans only** |
+| `packages/core/src/preflight/rules/` | **The preflight rules**                             | **Humans only** |
 | `packages/core/test/rules.test.ts`   | Specs for the rules                                 | **Humans only** |
 | `packages/cli/`                      | The `pigpen` command and the Claude Code hook       | Agents may help |
 | `packages/cli/src/format.ts`         | **Terminal output design**                          | **Humans only** |
