@@ -24,11 +24,12 @@ wording is the user experience.
 4. Run `pnpm test`, then try it for real: `pnpm build && pnpm pigpen preflight "fix it"`.
 5. Open a PR. Whoever didn't write it reviews it.
 
-**Suggested order:** R1, R3 and R4 are the simplest. Then R2, R5 and R7. R6 needs the brief.
-R8 needs a way to measure how similar two prompts are. Choose that approach yourselves and write
-down why: it's a good interview story.
+**Which rules:** build the nine in the "Demo set" table of `docs/pen-format.md`.
+Suggested order: R1, R3, R4 and R11 are the simplest. Then R2, R5, R7, R9 and R10. The rules
+marked "Next" need data from the hook, so check what it receives first. Leave the "Later" rules
+until after the demo.
 
-**Done when:** all 8 rules are in, every `it.todo` is a real test, and `pigpen preflight "fix it"`
+**Done when:** the demo-set rules are in, every `it.todo` is a real test, and `pigpen preflight "fix it"`
 fires R1 and R3.
 
 ### Coach prompts for the rules
@@ -42,8 +43,8 @@ Paste these into Claude Code or Cursor as they are.
 > Here's my `fires()` for **R5**. Review it like a senior engineer: bugs, false positives, false
 > negatives, readability. Suggest extra test prompts in plain English. Don't rewrite the function.
 
-> Explain two or three ways to measure how similar two short prompts are, for rule R8, with the
-> tradeoffs of each. No code. I'll pick one and implement it.
+> For rule **R9 (bug with no evidence)**, what counts as "error text" in a prompt? Give me examples
+> of prompts that should and shouldn't count, and the tricky middle cases. No code.
 
 > I wrote these test prompts for **R2**. Which ones are weak or redundant, and what cases am I
 > missing? Don't write the tests for me.

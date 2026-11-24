@@ -79,10 +79,10 @@ Then connect your agent: [Claude Code](./integrations/claude-code/README.md) ·
 
 ## Who built what
 
-|              | Owned                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------- |
+|                       | Owned                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------- |
 | **Designer (Eileen)** | Pen replay page, brand and design tokens, preflight question wording, terminal output |
-| **Engineer (Hakim)** | Preflight rules engine and rules, MCP server, hooks, file format                      |
+| **Engineer (Hakim)**  | Preflight rules engine and rules, MCP server, hooks, file format                      |
 
 **How this was built.** We used Claude Code and Cursor throughout, and PigPen on itself (see
 [`.pigpen/`](./.pigpen)). An agent scaffolded the plumbing: monorepo, CI, file format, MCP server and
@@ -99,7 +99,7 @@ agents in a coaching role in those folders.
 ## Roadmap
 
 - [x] `.pigpen/` format, handoff safety, MCP server, CLI, Claude Code hook
-- [ ] Preflight rules R1–R8 ([guide](./docs/build-it-yourselves.md))
+- [ ] Preflight rules: the demo set ([guide](./docs/build-it-yourselves.md))
 - [ ] Pen replay with a real recorded session
 - [ ] Review against the brief's acceptance criteria
 - [ ] A Cursor hook, and a third tool
